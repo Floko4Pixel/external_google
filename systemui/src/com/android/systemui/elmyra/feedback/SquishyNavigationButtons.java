@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.keyguard.KeyguardViewMediator;
+import com.android.systemui.navigation.Navigator;
 import com.android.systemui.statusbar.phone.NavigationBarView;
 
 import java.util.Arrays;

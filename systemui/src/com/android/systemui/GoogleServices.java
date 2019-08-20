@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.UserHandle;
 import android.provider.Settings;
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.crdroid.Utils;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.VendorServices;
 import com.android.systemui.R;
