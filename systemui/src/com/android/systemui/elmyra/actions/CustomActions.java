@@ -9,6 +9,7 @@ import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.WindowManager;
 
 import com.android.internal.util.crdroid.Utils;
 import com.android.systemui.Dependency;
@@ -97,6 +98,11 @@ public class CustomActions extends Action {
             case 12: // Ringer modes
                 Utils.toggleRingerModes(getContext());
                 break;
+            case 13: // Screenrecord
+                if (isScreenOn) {
+                    Utils.takeScreenrecord(getScreenrecordQuality(getContext()));
+                }
+                break;
         }
     }
 
@@ -144,6 +150,12 @@ public class CustomActions extends Action {
         Intent intent = new Intent(Intent.ACTION_SEARCH_LONG_PRESS);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
+    }
+
+    private int getScreenrecordQuality(Context context) {
+        return Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.SCREENRECORD_QUALITY_MODE, WindowManager.SCREEN_RECORD_LOW_QUALITY,
+                UserHandle.USER_CURRENT);
     }
 }
 
