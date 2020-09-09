@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.du.ExtraUtils;
 import com.android.systemui.R;
 import com.google.android.systemui.assist.uihints.OverlayUiHost;
 
@@ -96,7 +96,7 @@ public class KeyboardIconView extends FrameLayout implements OverlayUiHost.Botto
         if (mShowAssistUi) {
             return MINIMUM_MARGIN_PX;
         } else {
-            return Utils.shouldSetNavbarHeight(mContext) ? MINIMUM_MARGIN_PX : 0;
+            return ExtraUtils.shouldSetNavbarHeight(mContext) ? MINIMUM_MARGIN_PX : 0;
         }
     }
 
