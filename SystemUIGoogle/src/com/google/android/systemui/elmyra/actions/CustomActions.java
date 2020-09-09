@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 
 import com.android.internal.util.crdroid.Utils;
 import com.android.internal.util.du.ExtraUtils;
+import com.android.internal.util.ScreenRecordHelper;
 import com.android.systemui.Dependency;
 import com.android.systemui.assist.AssistManager;
 
@@ -23,6 +24,7 @@ public class CustomActions extends Action {
     private AssistManager mAssistManager;
     private PowerManager mPm;
     private ContentResolver mResolver;
+    private ScreenRecordHelper mScreenRecordHelper;
 
     public CustomActions(Context context) {
         super(context, null);
@@ -83,26 +85,27 @@ public class CustomActions extends Action {
                     Utils.takeScreenshot(true);
                 }
                 break;
-            case 9: // Notification panel
+            case 9: // Screenrecord
+                if (isScreenOn) {
+                    mScreenRecordHelper = new ScreenRecordHelper(getContext());
+                    mScreenRecordHelper.launchRecordPrompt();
+                }
+                break;
+            case 10: // Notification panel
                 if (isScreenOn) {
                     Utils.toggleNotifications();
                 }
                 break;
-            case 10: // QS panel
+            case 11: // QS panel
                 if (isScreenOn) {
                     Utils.toggleQsPanel();
                 }
                 break;
-            case 11: // Clear notifications
+            case 12: // Clear notifications
                 Utils.clearAllNotifications();
                 break;
-            case 12: // Ringer modes
+            case 13: // Ringer modes
                 Utils.toggleRingerModes(getContext());
-                break;
-            case 13: // Kill app
-                if (isScreenOn) {
-                    ExtraUtils.killForegroundApp();
-                }
                 break;
             case 14: // Skip song
                 ExtraUtils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_NEXT);
