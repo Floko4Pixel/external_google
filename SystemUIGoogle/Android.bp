@@ -36,6 +36,7 @@ android_app {
     ],
     libs: [
         "telephony-common",
+        "ims-common",
     ],
     manifest: "AndroidManifest.xml",
     platform_apis: true,
