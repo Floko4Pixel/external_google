@@ -13,7 +13,6 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.settings.aware.AwareFeatureProvider;
 import com.android.settings.gestures.GesturePreferenceController;
 import com.android.settings.overlay.FeatureFactory;
-import com.android.settings.widget.VideoPreference;
 import com.android.settingslib.core.lifecycle.LifecycleObserver;
 import com.android.settingslib.core.lifecycle.events.OnStart;
 import com.android.settingslib.core.lifecycle.events.OnStop;
@@ -25,7 +24,6 @@ public class WakeScreenGesturePreferenceController extends GesturePreferenceCont
     private static final int OFF = 0;
     private static final int ON = 1;
     private static final String PREF_KEY_VIDEO = "gesture_wake_screen_video";
-    public static final float VIDEO_HEIGHT_DP = 310.0f;
     private AmbientDisplayConfiguration mAmbientConfig;
     private final AwareFeatureProvider mFeatureProvider;
     private AwareHelper mHelper;
@@ -40,7 +38,6 @@ public class WakeScreenGesturePreferenceController extends GesturePreferenceCont
 
     public void displayPreference(PreferenceScreen preferenceScreen) {
         super.displayPreference(preferenceScreen);
-        ((VideoPreference) preferenceScreen.findPreference(PREF_KEY_VIDEO)).setHeight(VIDEO_HEIGHT_DP);
         mPreference = preferenceScreen.findPreference(getPreferenceKey());
     }
 

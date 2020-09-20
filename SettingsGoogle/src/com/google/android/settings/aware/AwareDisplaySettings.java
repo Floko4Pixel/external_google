@@ -59,7 +59,6 @@ public class AwareDisplaySettings extends RadioButtonPickerFragment {
         super.onAttach(context);
         mHelper = new AwareHelper(context);
         mConfig = new AmbientDisplayConfiguration(context);
-        setIllustration(R.raw.aware_display, R.drawable.aware_display);
     }
 
     public RadioButtonPreference bindPreference(RadioButtonPreference radioButtonPreference,
@@ -90,7 +89,7 @@ public class AwareDisplaySettings extends RadioButtonPickerFragment {
     }
 
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.DIRTYTWEAKS;
+        return MetricsProto.MetricsEvent.CRDROID_SETTINGS;
     }
 
     @Override

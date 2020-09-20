@@ -23,7 +23,7 @@ public class AwareSettings extends DashboardFragment {
     }
 
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.DIRTYTWEAKS;
+        return MetricsProto.MetricsEvent.CRDROID_SETTINGS;
     }
 
     public int getPreferenceScreenResId() {
